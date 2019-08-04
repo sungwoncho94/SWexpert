@@ -11,34 +11,31 @@
 현재까지 본 숫자는 0, 1, 2, 3, 4, 5, 6, 7, 8, 9이다.
 5N번 양을 세면 0에서 9까지 모든 숫자를 보게 되므로 민석이는 양 세기를 멈춘다.
 '''
-''' input
-5
-1
-2
-11
-1295
-1692
-'''
 
-# test_case = int(input())   # 총 몇 건의 테스트케이스가 있는지
+T = int(input())
+
+for t in range(1, T+1):
+    num = int(input())
+    sum_num = num
+    num_list = []
+    i = 0
+
+    while len(num_list) < 10:
+        str_num = str(num)
+        for n in str(num):
+            if n not in num_list:
+                num_list.append(n)
+        num += sum_num
+        i += 1
+    
+    print(f'#{t} {str_num}')
+
+    
+    
 
 
-# # 첫번째 테스트케이스 가정 (N)
-num = int(input())    # int(input())  첫번째 테스트 케이스
-result = []           # 결과 리스트
-k = 1                 # 횟수
 
-while len(result) < 10:                # input된 num은 바꾸면 안되니까 temp란 변수에 담아서 변환
-    temp = num * k                     # 왜 temp = num*k를 여기서 할까???
-    for i in range(len(str(temp))):    # for문 3번 반복 (0,1,2)
-        a = temp % 10
-        temp = int(temp/10)
-        if a not in result:
-            result.append(a)
-            print(result)
-    k += 1                              # k =+ 1 을 하면 for문이 끝나고 while로 들어가는건가?
 
-print(num*(k-1))
 
 ''' 희철님 코드
 N = int(input())
