@@ -32,11 +32,6 @@ for t in range(1, T+1):
 
     
     
-
-
-
-
-
 ''' 희철님 코드
 N = int(input())
 num_list = []
