@@ -72,23 +72,26 @@ def my_abs(a, b):
         result = b - a
     return result
 
-def isWall(x, y):
+def isWall(x):
     if x < 0 or x >= 5:
-        return False
-    if y < 0 or y >= 5:
+        return True
+    else:
         return False
 
-dx = [-1, 0, 1, 0]
-dy = [0, -1, 0, 1]
+dx = [0, 1, 0, -1]
+dy = [1, 0, -1, 0]
 
 sum_num = 0
-for x in range(5):
-    for y in range(5):
-        for i in range(4):
+
+for x in range(len(arr)):
+    for y in range(len(arr[x])):
+        for i in range(4):  # 사방탐색
             testX = x + dx[i]
             testY = y + dy[i]
-            if isWall(testX, testY) == False:
+            if isWall(testX) + isWall(testY) == False:
                 sum_num += my_abs(arr[x][y], arr[testX][testY])
+
+print(sum_num)
 
 
 
