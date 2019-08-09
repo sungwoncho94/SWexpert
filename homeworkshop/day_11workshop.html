@@ -29,29 +29,83 @@
 </div>
 <br />
 
-<!-- 이메일, PW입력 -->
-<div class="container m-5">
-  <form>
+<!-- form : 이메일, PW입력 -->
+<div class="container">
+  <!-- container에 넣어서 작업해야한다. -->
+  <form class="py-4">
+    <!-- padding y축 = 위아래 -> 위아래 여백을 준다 -->
+
     <div class="form-group font-weight-bold">
       <label for="exampleInputEmail1">Email address</label>
       <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
         placeholder="Enter email">
       <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
+
     <div class="form-group font-weight-bold">
       <label for="exampleInputPassword1">Password</label>
       <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
     </div>
+
     <div class="form-group font-weight-bold">
       <label for="exampleInputPassword1">Password Confirmation</label>
+      <!-- label for을 이용해서 누구의 라벨인지 표시 -->
       <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password Confirmation">
     </div>
+
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>
 <br />
 
-<!-- 사진 카드 삽입 -->
+<!-- card : 사진 카드 삽입 -->
+<!-- 컨테이너에 넣어서 column = 4 넣기 -->
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-4">
+      <div class="card" style="width: 18rem;">
+        <img src="image/꽃개.jpg" class="card-img-top" alt="꽃개">
+        <div class="card-body">
+          <h5 class="card-title">Flower, Puppy</h5>
+          <p class="card-text">강아지가 꽃을 물고 온다.
+          </p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-4">
+      <div class="card" style="width: 18rem;">
+        <img src="image/꽃개.jpg" class="card-img-top" alt="꽃개">
+        <div class="card-body">
+          <h5 class="card-title">Flower, Puppy</h5>
+          <p class="card-text">강아지가 꽃을 물고 온다.
+          </p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-4">
+      <div class="card" style="width: 18rem;">
+        <img src="image/꽃개.jpg" class="card-img-top" alt="꽃개">
+        <div class="card-body">
+          <h5 class="card-title">Flower, Puppy</h5>
+          <p class="card-text">강아지가 꽃을 물고 온다.
+          </p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- 
 <div class="container">
   <div class="row">
     <div class="card" style="width: 18rem;">
@@ -85,7 +139,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
