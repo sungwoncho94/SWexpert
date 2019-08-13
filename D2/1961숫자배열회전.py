@@ -28,20 +28,33 @@ import copy
 T = int(input())
 
 for t in range(1, T+1):
+    N = int(input())
+
     matrix = []
     re_matrix = []
-    N = int(input())
+    temp = []
+    result_matrix = [[0] * 3 for n in range(N)]
+    print(result_matrix)
     
     for n in range(N):
         n_list = list(map(int, input().split()))
         # list 1 2 3 -> relist 3 2 1 로 바꾼 후 rematrix에 append 하자
         matrix.insert(0, n_list)
-        re_matrix = copy.deepcopy(matrix)
-        # nlist = [[1, 2, 3], [4, 5, 6], [7, 8, 9]] / [[list1] [list2] [list3]]
-        # re_matrix = 3 [1, 2, 3], 2 [4, 5, 6], 1 [7, 8, 9]
 
-    for i in range(N):
-        for j in range(N):
-            print(matrix[i][j])
+        # nlist = [[1, 2, 3], [4, 5, 6], [7, 8, 9]] / [[list1] [list2] [list3]]
+        # matrix = [[7, 8, 9], [4, 5, 6], [1, 2, 3]]
+        # re_matrix = 3 [1, 2, 3], 2 [4, 5, 6], 1 [7, 8, 9]
+    
+    cnt = 0
+    while cnt < N:
+        re_matrix = list(zip(matrix[0], matrix[1]=, matrix[2]))
+        for n in range(N):
+            result_matrix[n][cnt] = re_matrix[n]
+            temp.insert(0, re_matrix[n])
+        re_matrix = temp
+        
+        cnt += 1
+    
+    print(result_matrix)
 
 
