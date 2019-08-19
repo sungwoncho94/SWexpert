@@ -32,15 +32,14 @@ for t in range(1, T+1):
         sentence = list(map(str, input()))
         matrix.append(sentence)
     
-    temp = 0
-    length = 0
+    temp = 1
+    length = 1
     # 2부터 100까지 글자수 늘리며 pal검사할 것.
     for p in range(2, 101):
         F = 100 - (p-1)  # p에 따라 찾을 index가 달라짐
         for r in range(100):  # 0~99행 row 탐색
             for f in range(F):  # 0~f index까지만 탐색
-                test = ''
-                # 회문 검사할 test 단어 만들기
+                test = ''  # 회문 검사할 test 단어 만들기
                 for i in range(p):  # 탐색할 글자수
                     test += matrix[r][f+i]
 

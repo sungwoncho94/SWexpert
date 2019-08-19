@@ -16,11 +16,14 @@ for t in range(1, T+1):
             n_list.append(temp)
         t_list.append(n_list)
     print(t_list)
-
-    i = 0
-    while i < N:
-        while j <= i:
-            
-
-            j += 1
-        i += 1
+    # 시도해보기
+    # i = 0
+    # while i < N:
+    #     while j <= i:
+    #         
+    # 
+    #         j += 1
+    #     i += 1
+    
+    
+    # while j < i: continue   -->  이것도 해보기
