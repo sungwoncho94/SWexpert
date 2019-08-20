@@ -5,17 +5,21 @@ for t in range(1, T+1):
     total_list = []
 
     print('#{}'.format(t))
-    for i in range(N):  # N = 4 --> 0, 1, 2, 3
+
+    for i in range(N):  # N = 4 -> 0 1 2 3
         n_list = []
-        for j in range(i+1):  # j = 0 / 0, 1 / 0, 1, 2 / 0, 1, 2, 3 -> N과 개수가 같아짐
+        j = 0
+        while j < i+1:  # i+1 = 1, 2, 3, 4
             if j == 0:
                 n_list.append(1)
             elif j == i:
                 n_list.append(1)
             else:
-                n_list.append(total_list[i-1][j] + total_list[i-1][j-1])
-
+                n_list.append(total_list[i-1][j-1] + total_list[i-1][j])
+            j += 1
+        total_list.append(n_list)
         for n in n_list:
             print(n, end=" ")
         print()
-        total_list.append(n_list)
+
+
