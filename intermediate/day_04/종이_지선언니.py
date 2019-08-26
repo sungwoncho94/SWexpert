@@ -4,14 +4,14 @@ def factorial(N):
         result *= i
     return result
 
-
 def find_case(N):
+    # N = 홀수일때
     if N % 20:
         k = N // 20
         l = 1
         result = 1
         while k > 0:
-            result += (factorial(k+l)/(factorial(k)*factorial(l))) * 2**k
+            result += (factorial(k+l)/(factorial(k)*factorial(l))) * (2**k)
             k -= 1
             l += 2
     else:
@@ -19,7 +19,7 @@ def find_case(N):
         l = 0
         result = 1
         while k > 0:
-            result += (factorial(k + l)/(factorial(k) * factorial(l))) * 2 ** k
+            result += (factorial(k + l)/(factorial(k) * factorial(l))) * (2**k)
             k -= 1
             l += 2
     return int(result)

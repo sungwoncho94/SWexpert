@@ -15,4 +15,5 @@ for t in range(1, T+1):
                 temp = t_list[i-1][j-1] + t_list[i-1][j]
             n_list.append(temp)
         t_list.append(n_list)
+        
     print(t_list)
