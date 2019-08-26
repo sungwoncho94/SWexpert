@@ -1,32 +1,3 @@
-'''
-1
-6 5
-1 4
-1 3
-2 3
-2 5
-4 6
-1 6
-2
-7 4
-1 6
-2 3
-2 6
-3 5
-2 5
-3
-9 9
-2 6
-4 7
-5 7
-1 5
-2 9
-3 9
-4 8
-5 3
-7 8
-1 9
-'''
 # dfs 함수 작성 - 재귀
 '''
 def dfs_visit(adj, u, visit):
@@ -40,43 +11,48 @@ def dfs(adj, s):
     dfs_visit(adj, s, visit)
     return visit
 '''
-# dfs 함수 작성 - stack
-def DFS(adj):
-    visit = [0] * (V + 1)
-    stack = [start]
-    while stack:  # stack이 차있을때까지 계속 돌림
-        node = stack.pop()
-        if not visit[node]:
-            visit[node] = 1
-            # 출발~도착까지 모든 경로가 나왔다면 끝내기
+# 모든 경로를 탐색하는 DFS stack함수 만들기
+def DFS(adj, start):
+    visit = [0] * (V+1)  # 0을 포함한 노드들의 방문여부 리스트
+    stack = []
+    stack.append(start)
+
+    while len(stack) > 0:  # == while stack:
+        # (1) node정의  (stack[-1]이라고 쓸 수 없으니까)
+        # stack[-1]을 제거하는 동시에, 현재node로 설정
+        node = stack.pop()  
+        if visit[node] == 0:
+            visit[node] = 1  # node == index이므로 가능
             if visit[start] == 1 and visit[end] == 1:
                 return 1
-            stack.extend(adj[node])  # 가지 않았던 node를 추가하여 새로운 길 만들기
+                break
+        stack.extend(adj[node])  # 현재 node에서 갈 수 있는 경로를 stack에 추가
     return 0
-        
 
 
 T = int(input())
 
 for t in range(1, T+1):
-    V, E = map(int, input().split())
+    V, E = map(int, input().split())  # 노드 수, 연결경로 수
     node_list = []
-    adj = [[] for i in range(V+1)]
+    adj = [[] for i in range(V+1)]  # node와 index를 동일하게 하기 위해
 
-    # 가영이의 board와 똑같음
     for e in range(E):
-        s_e = list(map(int, input().split()))
-        node_list.append(s_e)
+        # 출발노드, 도착노드
+        start_end = list(map(int, input().split()))
+        node_list.append(start_end)
     # [[1, 4], [1, 3], [2, 3], [2, 5], [4, 6]]
-    start, end = map(int, input().split())
 
-    # adj 만들기
+    # 노드의 이웃 노드를 표시한 adj만들기
     for n in node_list:
         adj[n[0]].append(n[1])
     # [[], [4, 3], [3, 5], [], [6], [], []]
 
-    print('#{} {}'.format(t, DFS(adj)))
+    start, end = map(int, input().split())
 
+    result = DFS(adj, start)
+
+    print('#{} {}'.format(t, result))
 
     
     
