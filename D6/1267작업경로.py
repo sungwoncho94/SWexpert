@@ -11,7 +11,7 @@ def dfs(node):  # adj, node를 받아서
     stack.append(node)  # node = 시작node (자신에게 들어오는 경로가 없는 node)
     path = ''
 
-    while stack:
+    while stack:  # stack == 1: stack이 빌 때까지 돌려라
         for i in range(len(stack)):
             state = stack.pop()
 
@@ -22,9 +22,7 @@ def dfs(node):  # adj, node를 받아서
                 path += str(state)  # 더이상 자신에게 들어올 node가 없다면 path에 현재 node(state)를 추가
                 path += ' '  # 출력형태 맞춰주기
                 stack.extend(adj[state])
-    return path
-
-        
+    return pathb       
 
 # (1) Input Data로 기초작업
 T = 10
@@ -35,13 +33,11 @@ for t in range(1, T+1):
     end = []
     adj = [[] for i in range(V+1)]
 
-    for i in range(E):
-        start.append(n_list[i*2])
-        end.append(n_list[i*2 + 1])
-        # if i % 2 == 0:
-        #     start.append(n_list[i])
-        # else:
-        #     end.append(n_list[i])
+    for i in range(E*2):
+        if i % 2 == 0:
+            start.append(n_list[i])
+        else:
+            end.append(n_list[i])
     # start = [4, 1, 2, 2, 5, 7, 1, 8, 8]
     # end = [1, 2, 3, 7, 6, 6, 5, 5, 9]
 
