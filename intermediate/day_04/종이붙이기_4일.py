@@ -15,4 +15,6 @@ for N in range(10, 301, 10):
         s = int((N/10) - (2*b))
         result += int((factorial(b+s) / (factorial(b) * factorial(s))) * 2**b)
 
+
+
     print('#{} {}'.format(N, result))
