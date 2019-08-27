@@ -1,6 +1,5 @@
 # list.remove(' ') 는 list의 왼쪽부터 ' '안의 str을 지우는 함수. 무조건 왼쪽부터 지운다
 # del 사용법 = del list[ ]
-
 T = int(input())
 
 for t in range(1, T+1):
