@@ -27,17 +27,31 @@ for t in range(1, 11):
 
     for l in range(len(line)):
         start.append(line[l]) if l % 2 == 0 else end.append(line[l])
+<<<<<<< HEAD
+    # print(start, end)
+    # adj 리스트
+    for e in range(E):
+        adj[start[e]].append(end[e])
+
+=======
     print(start, end)
     # adj 리스트
     for e in range(E):
         adj[start[e]].append(end[e])
+>>>>>>> 766509860c4fe4e696832f7fe6a681851081ce4c
     # visited 리스트
     visited = [0] * (V+1)
     for i in range(V+1):
         visited[i] = end.count(i)
+<<<<<<< HEAD
+    # print(visited)
+
+    dfs_v = ''  # result
+=======
     print(visited)
 
     dfs_v = ''  # 이거 무엇? 이미 간 경로?
+>>>>>>> 766509860c4fe4e696832f7fe6a681851081ce4c
     for i in range(1, V+1):
         if visited[i] == 0:
             dfs_v += dfs(i)
