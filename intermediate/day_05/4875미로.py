@@ -20,8 +20,42 @@
 00000
 '''
 
-T = int(input())
 
+# 해당 좌표가 이동 가능한지 여부 판별
+# 테두리 벗어나지 않고, 가보지 않은 곳 가고, 1(벽)도 가면 X
+def is_ok(y, x):
+    return 0 <= y < n and 0 <= x < n and matrix[y][x] != 1:
+        # return True
+
+
+# Y좌표, X좌표 순서임
+# 재귀함수 작성
+def find_map(startY, startX):
+    global result
+    # 1. 종료조건 설정
+    if matrix[startY][startX] == 3:
+        result = 1
+        return result  # 전역변수로 바꿔줘야함 --> global 사용
+    
+    # 2. 반복검색 (4방향 검색)
+
+    # visited 설정 (간곳이 3이 아니면, visited에 추가)
+    visited.append((startY, startX))
+
+    # 답을 찾았으면 멈춰줘야함 --> 답을 찾지 않았고 & 갈 수 있는 길이면 시행
+    if result == 0 and is_ok(startY, startX + 1) and (startY, startY + 1) not in visited:
+        find_map(startY, startX + 1)  # 우측
+    if result == 0 and is_ok(startY + 1, startX) and (startY + 1, startY) not in visited:
+        find_map(startY + 1, startX)  # 아래
+    if result == 0 and is_ok(startY, startX - 1) and (startY, startY - 1) not in visited:
+        find_map(startY, startX - 1)  # 좌측
+    if result == 0 and is_ok(startY - 1, startX) and (startY - 1, startY) not in visited:
+        find_map(startY - 1, startX)  # 위
+
+
+
+
+T = int(input())
 for t in range(1, T+1):
     N = int(input())
     matrix = []
@@ -37,12 +71,15 @@ for t in range(1, T+1):
     for a in range(N):
         for b in range(N):
             if matrix[a][b] == 2:
-                i = a
-                j = b
+                startX = a
+                startY = b
                 break
+    # 방문했던 위치 저장소 필요 --> visited
+    visited = []
+    # 목적지 도착 여부
+    result = 0
     
-    state = matrix[i][j]
-    stack = []
+    
     
 
 
