@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # T = int(input())
 
 # for t in range(1, T+1):
@@ -11,6 +12,8 @@
 
 #     print('#{} {}'.format(t, n_list[L]))
 
+=======
+>>>>>>> c484acf708ed7d6f5af074afa4e0790e10b73832
 T = int(input())
 
 for t in range(1, T+1):
