@@ -7,12 +7,13 @@ def bfs(adj, start):
     while queue:
         node = queue.pop(0)
         temp_list.extend(adj[node])
+        queue.extend(adj[node])
 
         while temp_list:
-            temp = temp_list.pop(0)
-            if visit[temp] == 0:
-                visit[temp] += 1
-                queue.append(temp)
+            node = temp_list.pop(0)
+            if visit[node] == 0:
+                visit[node] += 1
+                queue.append(node)
         if len(temp_list) == 0:
             cnt += 1
     
