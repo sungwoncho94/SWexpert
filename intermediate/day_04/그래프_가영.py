@@ -24,4 +24,4 @@ for t in range(int(input())):
         adj[a[0]].append(a[1])
     # print(adj)  #[[], [4, 3], [3, 5], [], [6], [], []]
 
-    print('#{} {}'.format(t+1, dfs(adj)))
+    print('#{} {}'.format(t+1, dfs(adj))) 
