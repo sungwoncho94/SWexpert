@@ -1,39 +1,41 @@
-def mydiv(start, end):
-    if start == end:
+import sys
+sys.stdin = open("4880.txt", "r")
+
+def battle(card_no1, card_no2):
+    if data[card_no1]==data[card_no2]:#카드번호가 작으면 승
+        if card_no1 < card_no2:
+            return card_no1
+        return card_no2
+    if data[card_no1]==1: #가위
+        if data[card_no2]==2:#바위
+            return card_no2
+        else:
+            return card_no1
+    if data[card_no1]==2: #바위
+        if data[card_no2]==3:#보
+            return card_no2
+        else:
+            return card_no1
+    if data[card_no1]==3: #보
+        if data[card_no2]==1:#가위
+            return card_no2
+        else:
+            return card_no1
+
+def mydiv(start, end): #순서번호 입력
+    #종료
+    if start == end: #한장으로 나눠진 경우
         return start
+    p = (start+end)//2 #반 나누는 기준 번호
+    card_no1 = mydiv(start,p) #한장까지 분할. 카드의 번호 반환
+    card_no2 = mydiv(p+1,end) #한장까지 분할. 카드의 번호 반환
+    winner_card_no = battle(card_no1, card_no2)
+    return winner_card_no #승자카드번호 반환
 
-    p = (start + end) // 2  # 학생을 반 나누는 기준번호
-    card_num1 = mydiv(start, p)  # 한장까지 분할, 카드의 번호가 반환
-    card_num2 = mydiv(p+1, end)
-    win_num = battle(card_num1, card_num2)
-    return win_num
+TC = int(input()) #테스트 횟수
 
-def battle(a, b):
-    if data[a] == data[b]:
-        if a < b:
-            return a
-        return b
-    if data[a] == 1:
-        if data[b] == 2:
-            return b
-        else:
-            return a
-    if data[a] == 2:
-        if data[b] == 3:
-            return b
-        else:
-            return a
-    if data[a] == 3:
-        if data[b] == 1:
-            return b
-        else:
-            return a
-
-
-T = int(input())
-
-for t in range(1, T+1):
-    n = int(input())
-    data = list(map(int, input().split()))
-    winner = mydiv(0, n-1)
-    print('#{} {}'.format(t, winner))
+for tc in range(1, TC+1):
+    n = int(input()) #게임참여숫자 갯수
+    data = list( map(int,input().split()) )  # 게임참여숫자목록
+    winner = mydiv(0,n-1)
+    print("#%d %d" % (tc, winner+1))

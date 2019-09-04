@@ -5,8 +5,9 @@ for t in range(1, T+1):
     n_list = list(map(int, input().split()))
 
     while M > 0:
-        temp = n_list.pop(0)
-        n_list.append(temp)
+        n_list.append(n_list.pop(0))
+        # temp = n_list.pop(0)
+        # n_list.append(temp)
         M -= 1
 
     print('#{} {}'.format(t, n_list[0]))
