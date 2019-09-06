@@ -23,6 +23,7 @@ def search_map(start_y, start_x):
                 if mymap[next_y][next_x] == 3:
                     result_distance = distance[next_y][next_x] - 1
                     return
+
 TC = int(input())
 for tc in range(1, TC+1):
     N = int(input())
