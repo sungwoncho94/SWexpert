@@ -12,11 +12,7 @@ for t in range(1, T+1):
         if idx > len(n_list):
             idx -= len(n_list)
         
-<<<<<<< HEAD
-        n_list[idx:idx] = [0]
-=======
-        n_list[idx:0] = [0]
->>>>>>> c484acf708ed7d6f5af074afa4e0790e10b73832
+        n_list[idx:0] = [0]d
         if idx < len(n_list) - 1:
             n_list[idx] = n_list[idx-1] + n_list[idx+1]
         elif idx == len(n_list) - 1:

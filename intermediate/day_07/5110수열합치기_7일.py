@@ -12,11 +12,7 @@ for t in range(1, T+1):
         
         for n in range(len(origin_list)):
             if origin_list[n] > input_list[0]:
-<<<<<<< HEAD
-                origin_list[n:n] = input_list
-=======
                 origin_list[n:0] = input_list
->>>>>>> c484acf708ed7d6f5af074afa4e0790e10b73832
                 break
             if n == len(origin_list)-1:
                 origin_list += input_list
