@@ -7,5 +7,4 @@ for t in range(1, T+1):
     matrix = []
 
     for n in range(N):
-        
 
