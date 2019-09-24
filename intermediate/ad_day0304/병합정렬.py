@@ -25,7 +25,7 @@ def merge(left, right):
 
     # merge를 하는 순간에 left[-1]과 right[-1]을 비교한다
     global cnt
-    if left[-1] > right[-1]:
+    if left[0] > right[0]:
         cnt += 1
 
     i = 0

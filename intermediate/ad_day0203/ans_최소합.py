@@ -10,7 +10,8 @@ def solve( x, y, sum ):
         return
 
     if x == N - 1 and y == N - 1:
-        if ans > sum + mat[x][y]: ans = sum + mat[x][y]
+        if ans > sum + mat[x][y]:
+            ans = sum + mat[x][y]
     else:
         # if sum + mat[x][y] < ans:
             solve(x + 1, y, sum + mat[x][y])
