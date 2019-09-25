@@ -22,11 +22,11 @@ def backtaracking(location):
             # continue -> for 문으로 돌아가서 jump-1만큼 jump
             continue
         # 도착점에 도달하지 못했다면, 계속 backtracking해서 밑으로 들어가게 해야함
-        backtaracking(location)
-        # 이해가 안된다면 일단 외워야한다
-        # 도착점까지 도달하지 못한 상태에서 상위 location으로 돌려주는 코드
-        temp_cnt -= 1
-        location -= jump
+    backtaracking(location)
+    # 이해가 안된다면 일단 외워야한다
+    # 도착점까지 도달하지 못한 상태에서 상위 location으로 돌려주는 코드
+    temp_cnt -= 1
+    location -= jump
         
 
 T = int(input())
