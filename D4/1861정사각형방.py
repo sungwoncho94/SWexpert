@@ -57,34 +57,34 @@ for t in range(1, T+1):
                         
                         cnt += 1
                         a += 1
-                        stop += 1
+                        stop = 1
                         print('아래ㅇㅋ')
                 # 오른쪽
-                if (b+1) < N:
+                elif (b+1) < N:
                     print('오른쪽')
                     if matrix[a][b+1] == matrix[a][b] + 1:
                     
                         cnt += 1
                         b += 1
-                        stop += 1
+                        stop = 1
                         print('오른쪽ㅇㅋ')
                 # 위
-                if (a-1) >= 0:
+                elif (a-1) >= 0:
                     print('위')
                     if matrix[a-1][b] == matrix[a][b] + 1:
                         
                         cnt += 1
                         a -= 1
-                        stop += 1
+                        stop = 1
                         print('위ㅇㅋ')
                 # 왼쪽
-                if (b-1) >= 0:
+                elif (b-1) >= 0:
                     print('왼쪽')
                     if matrix[a][b-1] == matrix[a][b] + 1:
                         
                         cnt += 1
                         b -= 1
-                        stop += 1
+                        stop = 1
                         print('왼쪽ㅇㅋ')
             
             if cnt >= max_cnt:

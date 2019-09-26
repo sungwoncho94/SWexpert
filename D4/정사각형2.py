@@ -33,7 +33,7 @@ for t in range(1, T+1):
                         
                         cnt += 1
                         a += 1
-                        stop += 1
+                        stop = 1
                        # print('아래ㅇㅋ')
                 # 오른쪽
                 if (b+1) < N:
@@ -42,7 +42,7 @@ for t in range(1, T+1):
                     
                         cnt += 1
                         b += 1
-                        stop += 1
+                        stop = 1
                        # print('오른쪽ㅇㅋ')
                 # 위
                 if (a-1) >= 0:
@@ -60,7 +60,7 @@ for t in range(1, T+1):
                         
                         cnt += 1
                         b -= 1
-                        stop += 1
+                        stop = 1
                        # print('왼쪽ㅇㅋ')
             
             if cnt >= max_cnt:
@@ -69,3 +69,5 @@ for t in range(1, T+1):
 
     result = min(result_num_list)
     print('#{} {} {}'.format(t, result, max_cnt+1))
+
+    
