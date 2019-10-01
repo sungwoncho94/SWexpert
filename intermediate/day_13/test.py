@@ -1,3 +1,5 @@
-list = (4, 3, 2, 1, 0)
+a = str(123456)
 
-num = list.index(0)
+a = a[:3]
+
+print(a)
