@@ -1,4 +1,17 @@
+
 '''
+3
+0 1 1 0 0 1 0 0 0 0
+60
+1 1 1 1 1 1 1 1 1 1
+128
+0 1 0 1 0 1 0 1 0 1
+128
+
+#1 5
+#2 4
+#3 -1
+
 0 0 0 0 0 0 0 0 0 1
 793881
 
@@ -12,9 +25,10 @@ for t in range(1, T+1):
     num_list = []
     target = int(input())
     div_target = []
-    flag1 = 0
+    flag1 = 1
     result = 99999
     
+    # 누를 수 있는 숫자 뽑기
     for p in range(10):
         if temp_list[p] == 1:
             num_list.append(p)
@@ -23,8 +37,8 @@ for t in range(1, T+1):
     str_target = str(target)
     for tar in str_target:
         div_target.append(int(tar))
-
     # print(div_target) = [6, 0]
+
     for div in div_target:
         # target을 나눈 숫자가 num_list안에 없으면 flag1을 0으로 만든다.
         if div not in num_list:
@@ -33,6 +47,7 @@ for t in range(1, T+1):
     
     # 숫자조합만으로 target을 만들 수 있다면 그대로 출력하고 끝
     if flag1 == 1:
+        print('숫자조합으로 가능!')
         print('#{} {}'.format(t, len(div_target)+1))
 
     # 숫자조합만으로 target을 만들 수 없다면
@@ -42,7 +57,7 @@ for t in range(1, T+1):
 
         # 1로는 나누지 않는다.  //  target//2 까지만 i를 돌려도 된다.
         for i in range(2, target//2):
-            # 새로운 숫자로 나눌때마다 새로운 div_target_2 생성
+            # 새로운 숫자로 나눌때마다 새로운 div_target_2 생성  //  div_target_2 = 나눠진 target을 분해해놓은것
             div_target_2 = []
 
             target = target // i  # (target = 30)
