@@ -25,9 +25,8 @@ T = int(input())
 
 for t in range(1, T+1):
     V, E = map(int, input().split())
-    print(V, E)
+    #print(V, E)
     matrix = [[0] * (V+1) for _ in range(V+1)]  # 양방향으로 갈 수 있는지 없는지 나타낼 수 있음
-
 
     for i in range(E):
         node1, node2 = map(int, input().split())
