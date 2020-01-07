@@ -127,8 +127,10 @@ for t in range(1, T+1):
 
         for i in range(max_n):
             for j in range(max_m):
+                # 새로 확장된 부분에 대해 matrix -> state로 값 가져오기
                 if state[i][j] == 0 and matrix[i][j] > 0:
                     state[i][j] = matrix[i][j] + 1
+                # 
                 if state[i][j] > 0:
                     state[i][j] -= 1
 
