@@ -1,3 +1,6 @@
-test = [1, 2, 3, 4]
-test.insert(0, 0)
-print(test)
+test = [[1,1], [0, 2]]
+
+test.insert(0, [0, 0])
+
+for i in range(10, 0, -1):
+    print(i)
