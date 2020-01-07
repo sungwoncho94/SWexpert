@@ -49,6 +49,8 @@ def in_matrix(x, y):
 T = int(input())
 
 for t in range(1, T+1):
+    result = 0
+
     N, M, K = map(int, input().split())
     # N : 세로줄 / M : 가로줄 / K : hour
 
@@ -72,30 +74,30 @@ for t in range(1, T+1):
             if matrix[i][j] > 0:
                 state[i][j] = matrix[i][j] + 1
 
-    while hour <= K:
+    while hour < K:
         # 확장해야하는 칸이 있는지부터 확인하자
-        for j in range(M):
+        for j in range(max_m):
             if state[0][j] == 1:
                 extend_up(matrix)
                 extend_up(state)
                 max_n += 1
                 break
 
-        for j in range(M):
+        for j in range(max_m):
             if state[max_n -1][j] == 1:
                 extend_down(matrix)
                 extend_down(state)
                 max_n += 1
                 break
 
-        for i in range(N):
+        for i in range(max_n):
             if state[i][0] == 1:
                 extend_left(matrix)
                 extend_left(state)
                 max_m += 1
                 break
         
-        for i in range(N):
+        for i in range(max_n):
             if state[i][max_m - 1] == 1:
                 extend_right(matrix)
                 extend_right(state)
@@ -122,22 +124,31 @@ for t in range(1, T+1):
 
                                 xi -= dir_i[dir]
                                 yi -= dir_j[dir]
-                            matrix[i][j] = 'X'
-                    state[i][j] = 'X'
+                            matrix[i][j] = -1
+                    state[i][j] = -1
 
         for i in range(max_n):
             for j in range(max_m):
+                # 번식이 끝난 후, state값을 1씩 줄여주기
+                if state[i][j] > 0:
+                    state[i][j] -= 1
                 # 새로 확장된 부분에 대해 matrix -> state로 값 가져오기
                 if state[i][j] == 0 and matrix[i][j] > 0:
                     state[i][j] = matrix[i][j] + 1
-                # 
-                if state[i][j] > 0:
-                    state[i][j] -= 1
-
+        
         hour += 1
 
-        print('==============================')
+        print('==========', 'hour', hour, '==========')
         matprint(matrix)
+        print('state')
+        matprint(state)
+
+    for i in range(max_n):
+        for j in range(max_m):
+            if matrix[i][j] == -1 or matrix[i][j] > 0:
+                result += 1
+
+    print(result)
                                 
 
 
