@@ -74,7 +74,8 @@ for t in range(1, T+1):
             if matrix[i][j] > 0:
                 state[i][j] = matrix[i][j] + 1
 
-    while hour < K:
+    while hour <= K:
+        print('==========', 'hour', hour, '==========')
         # 확장해야하는 칸이 있는지부터 확인하자
         for j in range(max_m):
             if state[0][j] == 1:
@@ -104,6 +105,10 @@ for t in range(1, T+1):
                 max_m += 1
                 break
         
+        print('------바뀌기 전 matrix, state ---------')
+        matprint(matrix)
+        print('---------')
+        matprint(state)
         # state에서 1인 값을 찾아서 번식
         # 이 때, matrix값이 큰 것부터 찾아서 번식시켜야 한다
         # matrix에서 번식이 완료된 칸은 'X'로 표시하기
@@ -113,13 +118,18 @@ for t in range(1, T+1):
         for i in range(max_n):
             for j in range(max_m):
                 if state[i][j] == 1:
+                    print('------')
+                    print(i, j)
                     for num in range(10, 0, -1):
                         if matrix[i][j] == num:
+                            print('i, j, mat_num', i, j, num)
                             for dir in range(4):
                                 xi = dir_i[dir] + i
                                 yi = dir_j[dir] + j
-
+                                print('num', num, 'xi, yi', xi, yi)
+                                print(matrix[xi][yi])
                                 if in_matrix(xi, yi) and matrix[xi][yi] == 0:
+                                    print('왜 안나올까?', matrix[i][j], xi, yi)
                                     matrix[xi][yi] = matrix[i][j]
 
                                 xi -= dir_i[dir]
@@ -137,21 +147,37 @@ for t in range(1, T+1):
                     state[i][j] = matrix[i][j] + 1
         
         hour += 1
-
-        print('==========', 'hour', hour, '==========')
+        print("-------바뀐 후 matrix, state-------")
         matprint(matrix)
         print('state')
         matprint(state)
 
     for i in range(max_n):
         for j in range(max_m):
-            if matrix[i][j] == -1 or matrix[i][j] > 0:
+            if state[i][j] > 0:
                 result += 1
 
     print(result)
                                 
 
+'''
+원본
+1
+2 2 10
+1 1
+0 2
+.
+hour = 5에서 오류남
+1
+5 6 2
+0 0 1 1 0 0
+0 1 1 1 1 0
+1 1 1 1 1 1
+0 1 1 1 2 0
+0 0 1 2 0 0
 
+(3, 4) == 2 인데, 계속 1로 확장이 된다 -> 오류 수정
+'''
 
                             
 
