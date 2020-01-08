@@ -15,7 +15,7 @@ for t in range(1, T + 1):
         for j in range(N):
             # 시작하는 위치 = [i, j]
             start_location = [i, j]
-            a = i;
+            a = i
             b = j  # i, j는 처음 위치만 저장해둔다. a, b로 이동할 것.
             stop = 1  # 오른쪽 왼쪽 위쪽 아래쪽이 모두 불가능하면 stop은 여전히 0이다.
             cnt = 0
