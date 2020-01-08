@@ -75,7 +75,7 @@ for t in range(1, T+1):
                 state[i][j] = matrix[i][j] + 1
 
     while hour < K:
-        # print('==========', 'hour', hour, '==========')
+        print('==========', 'hour', hour, '==========')
         # 확장해야하는 칸이 있는지부터 확인하자
         for j in range(max_m):
             if state[0][j] == 1:
@@ -146,10 +146,10 @@ for t in range(1, T+1):
                     state[i][j] = matrix[i][j] + 1
         
         hour += 1
-        # print("-------바뀐 후 matrix, state-------")
-        # matprint(matrix)
-        # print('state')
-        # matprint(state)
+        print("-------바뀐 후 matrix, state-------")
+        matprint(matrix)
+        print('state')
+        matprint(state)
 
     for i in range(max_n):
         for j in range(max_m):
