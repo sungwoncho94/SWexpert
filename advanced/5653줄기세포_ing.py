@@ -74,7 +74,7 @@ for t in range(1, T+1):
             if matrix[i][j] > 0:
                 state[i][j] = matrix[i][j] + 1
 
-    while hour < K:
+    while hour < K-30:
         print('==========', 'hour', hour, '==========')
         # 확장해야하는 칸이 있는지부터 확인하자
         for j in range(max_m):
