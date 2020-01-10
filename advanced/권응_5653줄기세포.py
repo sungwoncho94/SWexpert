@@ -47,4 +47,4 @@ for t in range(int(input())):
                 q.append([x,y,vis[x][y]])
                 sepo += 1
             vis[x][y] = 0
-    print(f'#{t+1} {sepo}')
+    print('#{} {}'.format(t+1, sepo))
