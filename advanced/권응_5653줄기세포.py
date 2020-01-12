@@ -1,6 +1,6 @@
 from collections import deque
 near = [[-1,0], [0,1], [1,0], [0,-1]]
- 
+
 for t in range(int(input())):
     q = deque()
     bd = [[0]*700 for i in range(700)]
