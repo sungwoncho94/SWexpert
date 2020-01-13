@@ -100,7 +100,7 @@ for t in range(1, T+1):
                     # -> state가 0인 부분을 기준으로 삼아서, 원래 있던 세포와 새로 번식하려는 세포의 크기를 비교하여 번식시킨다
                     if state[dx][dy] == 0:
                         matrix[dx][dy] = max(matrix[i][j], matrix[dx][dy])
-                # 네방향 번식이 끝나면, 번식이 끝난 세포는 죽은 세포로 바꾼다
+                # 수정!! 번식 == 활성화 / 활성화가 끝난 후, 죽은 세포로 바꿔야한다!
                 matrix[i][j] = -1
                 state[i][j] = -1
 
