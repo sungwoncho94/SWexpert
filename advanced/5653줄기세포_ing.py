@@ -54,45 +54,43 @@ for t in range(1, T+1):
     while hour < K:
         print('==========', 'hour=', hour, '==========')
         # 확장해야하는 칸이 있는지부터 확인하자
-        # print('state')
-        # matprint(state)
+        print('matrix')
+        matprint(matrix)
+        print('state')
+        matprint(state)
         for a in range(max_m):
-            if state[0][a] == matrix[0][a]:
+            if matrix[0][a] != 0 and state[0][a] == matrix[0][a]:
                 extend_up(matrix)
                 extend_up(state)
                 max_n += 1
                 break
 
         for b in range(max_m):
-            if state[max_n -1][b] == matrix[max_n - 1][b]:
+            if matrix[max_n - 1][b] != 0 and state[max_n -1][b] == matrix[max_n - 1][b]:
                 extend_down(matrix)
                 extend_down(state)
                 max_n += 1
                 break
 
         for c in range(max_n):
-            if state[c][0] == matrix[c][0]:
+            if matrix[c][0] != 0 and state[c][0] == matrix[c][0]:
                 extend_left(matrix)
                 extend_left(state)
                 max_m += 1
                 break
 
         for d in range(max_n):
-            if state[d][max_m - 1] == matrix[d][max_m - 1]:
+            if matrix[d][max_m - 1] != 0 and state[d][max_m - 1] == matrix[d][max_m - 1]:
                 extend_right(matrix)
                 extend_right(state)
                 max_m += 1
                 break
         
-        print('matrix')
-        matprint(matrix)
-        print('state')
-        matprint(state)
         for i in range(max_n):  # 세로
             for j in range(max_m):  # 가로
                 # state == matrix일때만 (번식을 해야 할 때만) 코드를 진행
                 # print('1111state=', state[i][j])
-                if matrix != 0 and state[i][j] == matrix[i][j]:
+                if matrix[i][j] != 0 and state[i][j] == matrix[i][j]:
                 # state == 1인 좌표의 하, 우, 상, 좌 방향으로 살펴본다
                     for dir in range(4):
                         dx = dir_i[dir] + i
@@ -102,25 +100,34 @@ for t in range(1, T+1):
                         # -> state가 0인 부분을 기준으로 삼아서, 원래 있던 세포와 새로 번식하려는 세포의 크기를 비교하여 번식시킨다
                         if state[dx][dy] == 0:
                             matrix[dx][dy] = max(matrix[i][j], matrix[dx][dy])
-                # 모든 state를 -= 1 해준다
-                # print('state=', state[i][j])
-                if state[i][j] > 0:
-                    state[i][j] -= 1
-                    if state[i][j] == 0:
-                        state[i][j] = -1
-                        matrix[i][j] = -1
-
+                
         for i in range(max_n):
             for j in range(max_m):
                 # 새로 확장된 부분에 대해 matrix -> state로 값 가져오기
                 if state[i][j] == 0 and matrix[i][j] > 0:
                     state[i][j] = matrix[i][j] * 2
+
+        print('matrix')
+        matprint(matrix)
+        print('state')
+        matprint(state)
+
+        # 모든 state를 -= 1 해준다
+        # print('state=', state[i][j])
+        for i in range(max_n):
+            for j in range(max_m):
+                if state[i][j] > 0:
+                    state[i][j] -= 1
+                    if state[i][j] == 0:
+                        state[i][j] = -1
+                        matrix[i][j] = -1
         
         hour += 1
         # print("-------hour-------", hour)
-        # matprint(matrix)
-        # print('state')
-        # matprint(state)
+        print('matrix')
+        matprint(matrix)
+        print('state')
+        matprint(state)
 
     for i in range(max_n):
         for j in range(max_m):
@@ -128,7 +135,6 @@ for t in range(1, T+1):
                 result += 1
 
     print('#{} {}'.format(t, result))
-    #print('#{} {}'.format(t, result2))
 
 
 # 문제점 : 예시2번 hour = 4 의 모양이 틀리다.
